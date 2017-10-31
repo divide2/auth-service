@@ -7,10 +7,13 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
+import javax.sql.DataSource;
+
 @Configuration
 public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter{
 
 
+    private DataSource datasource;
 
     @Override
     @Bean
@@ -24,6 +27,7 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter{
         return super.userDetailsServiceBean();
     }
 
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
@@ -33,5 +37,9 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter{
                 .withUser("william.woodward").password("password2").roles("USER", "ADMIN");
 
     }
+
+
+
+
 }
 
