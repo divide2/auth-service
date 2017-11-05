@@ -1,7 +1,6 @@
 package com.divide2.auth.model;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
