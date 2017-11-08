@@ -17,7 +17,7 @@ public class User {
     private String email;
     private int gender;
     private String avatar;
-    private int enabled;
+    private boolean enabled;
     @Column(name = "create_date_time")
     private LocalDateTime createDateTime;
 
@@ -94,11 +94,11 @@ public class User {
         this.createDateTime = createDateTime;
     }
 
-    public int getEnabled() {
+    public boolean isEnabled() {
         return enabled;
     }
 
-    public void setEnabled(int enabled) {
+    public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 }

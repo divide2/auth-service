@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 import javax.sql.DataSource;
 
-@Configuration
+//@Configuration
 public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter{
 
 
