@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import javax.sql.DataSource;
 
 //@Configuration
+@Deprecated
 public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter{
 
 
