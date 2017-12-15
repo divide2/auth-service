@@ -16,6 +16,7 @@ public class UserController {
     private IUserService userServiceImpl;
     
     @RequestMapping("/signUp")
+
     public void signUp(User user) {
         userServiceImpl.save(user);
     }
