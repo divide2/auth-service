@@ -16,7 +16,7 @@ import java.util.Map;
 @SpringBootApplication
 @RestController
 @EnableAuthorizationServer
-@EnableEurekaClient
+//@EnableEurekaClient
 public class AuthApplication {
 
     @RequestMapping(value = { "/user" }, produces = "application/json")

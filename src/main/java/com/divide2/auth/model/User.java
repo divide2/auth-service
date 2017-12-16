@@ -21,7 +21,6 @@ public class User{
     private String password;
     private String phone;
     private String email;
-    @Column(columnDefinition = "comment '0 female 1 male other'")
     private int gender;
     private boolean enabled;
 

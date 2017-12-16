@@ -1,23 +1,25 @@
-#Setting the logging levels for the service
+
+spring:
+  datasource:
+    password: 123456
+
 server:
   port: 8901
-eureka:
-  instance:
-    preferIpAddress: true
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+#eureka:
+#  instance:
+#    preferIpAddress: true
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
+
+
+#Setting the logging levels for the service
 logging:
   level:
     com.netflix: WARN
     org.springframework.web: WARN
     com.divide2: DEBUG
-spring:
-  datasource:
-    password: 123456
-    driver-class-name:
-
 #security:
 #  ignored: /signUp

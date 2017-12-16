@@ -1,11 +1,10 @@
 package com.divide2.auth.model;
 
 import lombok.Data;
-import lombok.Generated;
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity

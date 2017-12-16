@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="sys_user_detail")
+@Table(name = "sys_user_detail")
 @Data
 public class UserDetail {
     @Id
@@ -21,6 +21,7 @@ public class UserDetail {
     private String nickname;
     private String intro;
     private String avatar;
+    @JsonFormat(pattern = DateConst.DATE_FOMMATER)
     private LocalDate birth;
     private String address;
     private String link;
@@ -29,19 +30,16 @@ public class UserDetail {
     private String phone;
     private String email;
 
-    @Column(columnDefinition = "comment '0 female 1 male 2 other'")
     private short gender;
-    @Column(columnDefinition = " comment ' not same to the user entity , it represent this record is a history when it's false'")
     private boolean enabled;
 
     @Column(name = "create_date_time")
     @JsonFormat(pattern = DateConst.DATETIME_FORMATTER)
     private LocalDateTime createDateTime;
 
-    @Column(name="update_date_time")
+    @Column(name = "update_date_time")
     @JsonFormat(pattern = DateConst.DATETIME_FORMATTER)
     private LocalDateTime updateDateTime;
-
 
 
 }

@@ -23,8 +23,18 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <start-class>com.divide2.auth.AuthApplication</start-class>
+        <docker.image.name>bvvy/divide2-auth-service</docker.image.name>
+        <docker.image.tag>divide2</docker.image.tag>
+    </properties>
+
     <dependencies>
-        <!--spring start -->
+        <!--==================== spring ================= -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -77,8 +87,16 @@
         </dependency>
         <!--spring end -->
 
-        <!--other-->
 
+        <!-- ============own =============  -->
+
+        <dependency>
+            <groupId>com.divide2</groupId>
+            <artifactId>divide2-common</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <!-- ================other================-->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-java8</artifactId>
@@ -97,22 +115,16 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+
         <dependency>
-            <groupId>com.divide2</groupId>
-            <artifactId>divide2-common</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.1-901.jdbc4</version>
         </dependency>
 
     </dependencies>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.8</java.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <start-class>com.divide2.auth.AuthApplication</start-class>
-        <docker.image.name>bvvy/divide2-auth-service</docker.image.name>
-        <docker.image.tag>divide2</docker.image.tag>
-    </properties>
+
 
     <build>
         <plugins>
