@@ -13,6 +13,11 @@ logging:
   level:
     com.netflix: WARN
     org.springframework.web: WARN
-    com.thoughtmechanix: DEBUG
+    com.divide2: DEBUG
+spring:
+  datasource:
+    password: 123456
+    driver-class-name:
+
 #security:
 #  ignored: /signUp

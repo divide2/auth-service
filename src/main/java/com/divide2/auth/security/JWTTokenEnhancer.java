@@ -10,12 +10,13 @@ import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
 public class JWTTokenEnhancer implements TokenEnhancer {
 
-    @Autowired
+    @Resource
     private IUserService userServiceImpl;
 
 
@@ -23,7 +24,7 @@ public class JWTTokenEnhancer implements TokenEnhancer {
     public OAuth2AccessToken enhance(OAuth2AccessToken oAuth2AccessToken, OAuth2Authentication oAuth2Authentication) {
 
         Map<String, Object> additionInfo = new HashMap<>();
-        additionInfo.put("USERDETAILS", userServiceImpl.getByUsername(oAuth2Authentication.getName()));
+        additionInfo.put("id", (userServiceImpl.getByUsername(oAuth2Authentication.getName())).getId());
         ((DefaultOAuth2AccessToken)oAuth2AccessToken).setAdditionalInformation(additionInfo);
         return oAuth2AccessToken;
     }

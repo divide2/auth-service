@@ -1,6 +1,5 @@
 package com.divide2.auth.security;
 
-import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,23 +15,20 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 
 import javax.annotation.Resource;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.BiConsumer;
 
 @Configuration
 public class JWTOAuthConfig extends AuthorizationServerConfigurerAdapter {
 
-    @Autowired
+    @Resource
     private AuthenticationManager authenticationManager;
 
-    @Autowired
+    @Resource
     private UserDetailsService userDetailsService;
-    @Autowired
+    @Resource
     private TokenStore tokenStore;
-    @Autowired
+    @Resource
     private DefaultTokenServices tokenServices;
-    @Autowired
+    @Resource
     private JwtAccessTokenConverter jwtAccessTokenConverter;
 
     @Resource

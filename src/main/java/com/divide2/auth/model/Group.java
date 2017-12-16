@@ -1,21 +1,23 @@
 package com.divide2.auth.model;
 
 import lombok.Data;
+import lombok.Generated;
+import org.springframework.data.annotation.Id;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="sys_role")
+@Table(name = "sys_group")
 @Data
-public class Role {
-
+public class Group {
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
 
     private String name;
 
 }
+
+

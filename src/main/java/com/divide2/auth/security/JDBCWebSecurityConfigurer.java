@@ -1,6 +1,5 @@
 package com.divide2.auth.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -10,12 +9,13 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 @Configuration
 public class JDBCWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
-    @Autowired
+    @Resource
     private DataSource dataSource;
 
 

@@ -1,9 +1,12 @@
 package com.divide2.auth.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name="sys_user_role")
+@Data
 public class UserRole {
 
     @Id
@@ -17,27 +20,4 @@ public class UserRole {
     @Column(name = "role_id")
     private int roleId;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public int getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(int roleId) {
-        this.roleId = roleId;
-    }
 }
