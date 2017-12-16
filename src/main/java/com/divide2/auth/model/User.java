@@ -1,5 +1,6 @@
 package com.divide2.auth.model;
 
+import com.divide2.common.date.DateConst;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,21 +18,19 @@ public class User{
     @GeneratedValue
     private int id;
     private String username;
-    private String nickname;
     private String password;
     private String phone;
     private String email;
     @Column(columnDefinition = "comment '0 female 1 male other'")
     private int gender;
-    private String avatar;
     private boolean enabled;
 
     @Column(name = "create_date_time")
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @JsonFormat(pattern = DateConst.DATETIME_FORMATTER)
     private LocalDateTime createDateTime;
 
     @Column(name="update_date_time")
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @JsonFormat(pattern = DateConst.DATETIME_FORMATTER)
     private LocalDateTime updateDateTime;
 
 }
