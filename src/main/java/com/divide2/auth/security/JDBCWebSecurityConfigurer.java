@@ -12,6 +12,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 
+/**
+ * @author bvvy
+ * 定义授权
+ */
 @Configuration
 public class JDBCWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 

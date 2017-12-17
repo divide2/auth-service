@@ -1,7 +1,7 @@
 
 spring:
   datasource:
-    password: 123456
+    password: bvvy288
 
 server:
   port: 8901
