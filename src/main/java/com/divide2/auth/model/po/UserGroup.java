@@ -1,4 +1,4 @@
-package com.divide2.auth.model;
+package com.divide2.auth.model.po;
 
 import lombok.Data;
 

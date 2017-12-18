@@ -1,6 +1,6 @@
 package com.divide2.auth.service.impl;
 
-import com.divide2.auth.model.User;
+import com.divide2.auth.model.po.User;
 import com.divide2.auth.repository.UserRepository;
 import com.divide2.auth.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;

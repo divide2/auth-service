@@ -11,6 +11,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import javax.annotation.Resource;
 
 //@Configuration
+@Deprecated
 public class OAuth2Config  extends AuthorizationServerConfigurerAdapter{
     @Resource
     private AuthenticationManager authenticationManager;

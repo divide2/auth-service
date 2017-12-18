@@ -1,6 +1,5 @@
 package com.divide2.auth.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -44,6 +43,7 @@ public class JWTOAuthConfig extends AuthorizationServerConfigurerAdapter {
                 .accessTokenConverter(jwtAccessTokenConverter)
                 .authenticationManager(authenticationManager)
                 .userDetailsService(userDetailsService);
+
     }
 
     @Override

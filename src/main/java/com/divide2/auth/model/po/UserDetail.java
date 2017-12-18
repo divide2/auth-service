@@ -1,4 +1,4 @@
-package com.divide2.auth.model;
+package com.divide2.auth.model.po;
 
 import com.divide2.common.date.DateConst;
 import com.fasterxml.jackson.annotation.JsonFormat;

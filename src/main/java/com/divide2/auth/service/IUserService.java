@@ -1,6 +1,6 @@
 package com.divide2.auth.service;
 
-import com.divide2.auth.model.User;
+import com.divide2.auth.model.po.User;
 
 public interface IUserService {
 

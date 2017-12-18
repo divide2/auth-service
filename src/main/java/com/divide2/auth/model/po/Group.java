@@ -1,4 +1,4 @@
-package com.divide2.auth.model;
+package com.divide2.auth.model.po;
 
 import lombok.Data;
 
@@ -8,14 +8,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="sys_role")
+@Table(name = "sys_group")
 @Data
-public class Role {
-
+public class Group {
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
 
     private String name;
 
 }
+
+

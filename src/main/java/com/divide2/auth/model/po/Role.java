@@ -1,6 +1,7 @@
-package com.divide2.auth.model;
+package com.divide2.auth.model.po;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,15 +9,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "sys_group")
+@Table(name="sys_role")
 @Data
-public class Group {
+public class Role {
+
     @Id
     @GeneratedValue
-    private Integer id;
+    private int id;
 
+    @NotEmpty
     private String name;
 
 }
-
-
