@@ -16,7 +16,7 @@ import javax.annotation.Resource;
  * 定义token 存储方式 jwt存储
  * 也可以使用redis 存储
  */
-@Configuration
+//@Configuration
 public class JWTTokenStoreConfig {
 
     @Resource

@@ -14,9 +14,9 @@ public class UserServiceImpl implements IUserService {
 
     @Autowired
     private UserRepository userRepository;
-
+/*
     @Autowired
-    private PasswordEncoder bCryptPasswordEncoder;
+    private PasswordEncoder bCryptPasswordEncoder;*/
 
     @Override
     public User getByUsername(String username) {
@@ -25,7 +25,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public void save(User user) {
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+//        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setCreateDateTime(LocalDateTime.now());
         userRepository.save(user);
     }

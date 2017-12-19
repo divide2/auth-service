@@ -10,8 +10,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
  * @author  bvvy
  * 定义资源授权
  */
-@Configuration
-@EnableResourceServer
+@Deprecated
 public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter {
 
 

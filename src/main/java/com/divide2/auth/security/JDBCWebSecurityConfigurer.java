@@ -16,7 +16,7 @@ import javax.sql.DataSource;
  * @author bvvy
  * 定义授权
  */
-@Configuration
+//@Configuration
 public class JDBCWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
     @Resource
