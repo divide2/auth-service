@@ -24,19 +24,17 @@ github:
   resource:
     userInfoUri: https://api.github.com/user
 #Setting the logging levels for the service
+
+
+
 logging:
   level:
     com.netflix: WARN
     org.springframework.web: WARN
     com.divide2: DEBUG
-
 security:
-  oauth2:
-    client:
-      client-id: acme
-      client-secret: acmesecret
-      scope: read,write
-      auto-approve-scopes: '.*'
+  ignored: /signup
+
 #eureka:
 #  instance:
 #    preferIpAddress: true
