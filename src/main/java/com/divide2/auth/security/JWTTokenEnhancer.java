@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
-public class JWTTokenEnhancer implements TokenEnhancer {
+public class  JWTTokenEnhancer implements TokenEnhancer {
 
     @Resource
     private IUserService userServiceImpl;
