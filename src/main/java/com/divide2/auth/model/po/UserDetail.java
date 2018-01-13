@@ -21,7 +21,7 @@ public class UserDetail {
     private String nickname;
     private String intro;
     private String avatar;
-    @JsonFormat(pattern = DateConst.DATE_FOMMATER)
+    @JsonFormat(pattern = DateConst.DATETIME_FORMATTER)
     private LocalDate birth;
     private String address;
     private String link;
