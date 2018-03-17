@@ -3,7 +3,7 @@ spring:
     name: authenticationservice
   profiles:
     active:
-      sd
-  cloud:
-    config:
-      enabled: true
+      default
+#  cloud:
+#    config:
+#      enabled: false
