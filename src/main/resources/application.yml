@@ -1,6 +1,25 @@
 
 server:
   port: 8901
+
+spring:
+  jpa:
+    database-platform: POSTGRESQL
+    database: postgresql
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: bvvyeh288
+    url: jdbc:postgresql://localhost:5432/bvvy_divide2
+
 # git
 github:
   client:
