@@ -1,6 +1,6 @@
 package com.divide2.auth.config
 
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
+import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 
@@ -8,7 +8,18 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  * Created by bvvy on 2018/3/18.
  * com.divide2.auth.config
  */
+@Configuration
 class LoginConfig : WebSecurityConfigurerAdapter() {
 
-    
+    override fun configure(http: HttpSecurity) {
+        http.httpBasic()
+                .and()
+                .logout().and()
+                .authorizeRequests()
+                .antMatchers("/join", "/", "/login")
+                .permitAll()
+                .anyRequest()
+                .authenticated()
+    }
+
 }

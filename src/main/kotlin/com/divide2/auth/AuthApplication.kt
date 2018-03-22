@@ -21,7 +21,6 @@ class AuthApplication {
         return user
     }
 
-
 }
 
 
