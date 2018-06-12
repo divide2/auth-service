@@ -1,8 +1,7 @@
-package com.divide2.auth.user
+package com.bvvy.grocery.auth.user
 
-
-import javax.persistence.*
 import java.time.LocalDateTime
+import javax.persistence.*
 
 @Entity
 @Table(name = "sys_user")
@@ -15,11 +14,15 @@ class User(
 
         var password: String = "",
 
+        var nickname: String = "",
+
         var phone: String = "",
 
         var email: String = "",
 
         var gender: String = "",
+
+        val avatar: String = "",
 
         var enabled: Boolean = false,
 

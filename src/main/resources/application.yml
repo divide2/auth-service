@@ -1,7 +1,6 @@
 
 server:
-  port: 8901
-
+  port: 11111
 spring:
   jpa:
     database-platform: POSTGRESQL
@@ -14,38 +13,20 @@ spring:
             non_contextual_creation: true
     hibernate:
       ddl-auto: update
+    show-sql: true
   datasource:
     driver-class-name: org.postgresql.Driver
     username: postgres
     password: bvvyeh288
-    url: jdbc:postgresql://localhost:5432/bvvy_divide2
-
-# git
-github:
-  client:
-    clientId: 1c23891103858487501e
-    clientSecret: f33376b3bdf95b4c4ef2645b0358b183af8afb42
-    accessTokenUri: https://github.com/login/oauth/access_token
-    userAuthorizationUri: https://github.com/login/oauth/authorize
-    clientAuthenticationScheme: form
-  resource:
-    userInfoUri: https://api.github.com/user
-
-
-#Setting the logging levels for the service
+    url: jdbc:postgresql://localhost:5432/grocery
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    property-naming-strategy: SNAKE_CASE
+  application:
+    name: authserver
 logging:
   level:
-    com.netflix: WARN
-    org.springframework.web: WARN
-    com.divide2: DEBUG
-security:
-  ignored: /signup
-
-#eureka:
-#  instance:
-#    preferIpAddress: true
-#  client:
-#    registerWithEureka: true
-#    fetchRegistry: true
-#    serviceUrl:
-#      defaultZone: http://localhost:8761/eureka/
+    org:
+      springframework:
+       web: debug
+       security: debug
