@@ -4,9 +4,9 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "sys_user_group")
-@Data
+//@Entity
+//@Table(name = "sys_user_group")
+//@Data
 public class UserGroup {
     @Id
     @GeneratedValue

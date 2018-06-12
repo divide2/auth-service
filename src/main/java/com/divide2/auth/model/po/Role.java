@@ -8,9 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="sys_role")
-@Data
+//@Entity
+//@Table(name="sys_role")
+//@Data
 public class Role {
 
     @Id

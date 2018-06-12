@@ -4,9 +4,9 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name="sys_user_role")
-@Data
+//@Entity
+//@Table(name="sys_user_role")
+//@Data
 public class UserRole {
 
     @Id

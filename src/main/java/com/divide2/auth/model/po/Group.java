@@ -7,9 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "sys_group")
-@Data
+//@Entity
+//@Table(name = "sys_group")
+//@Data
 public class Group {
     @Id
     @GeneratedValue

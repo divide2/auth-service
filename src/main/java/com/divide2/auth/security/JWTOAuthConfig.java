@@ -14,7 +14,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 import javax.annotation.Resource;
 import java.util.Arrays;
 
-@Configuration
+//@Configuration
 public class JWTOAuthConfig extends AuthorizationServerConfigurerAdapter {
 
     @Resource

@@ -51,8 +51,7 @@ public class JDBCWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                         "select username,password,enabled from sys_user u where u.username = ?"
                 )
                 .authoritiesByUsernameQuery(
-                        "select u.username,r.name from sys_user u left join sys_user_role ur on u.id=ur.user_id left join " +
-                                " sys_role r on r.id=ur.role_id where u.username = ?"
+                        "select u.username,'ROLE_USER'from sys_user u where u.username = ?"
                 );
     }
 

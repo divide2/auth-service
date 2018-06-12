@@ -16,11 +16,11 @@ import javax.annotation.Resource;
  * 定义token 存储方式 jwt存储
  * 也可以使用redis 存储
  */
-@Configuration
+//@Configuration
 public class JWTTokenStoreConfig {
 
-    @Resource
-    private ServiceConfig serviceConfig;
+//    @Resource
+//    private ServiceConfig serviceConfig;
 
     /**
      * 存储 token 方式
@@ -55,7 +55,7 @@ public class JWTTokenStoreConfig {
     @Bean
     public JwtAccessTokenConverter jwtAccessTokenConverter() {
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-        converter.setSigningKey(serviceConfig.getJwtSigningKey());
+//        converter.setSigningKey(serviceConfig.getJwtSigningKey());
         return converter;
     }
 
