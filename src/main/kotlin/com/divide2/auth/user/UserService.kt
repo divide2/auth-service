@@ -1,4 +1,4 @@
-package com.bvvy.grocery.auth.user
+package com.divide2.auth.user
 
 interface UserService {
     fun save(user: User)

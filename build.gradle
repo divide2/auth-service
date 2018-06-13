@@ -64,11 +64,7 @@ dependencies {
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compile("org.jetbrains.kotlin:kotlin-reflect")
     compile('org.springframework.boot:spring-boot-starter-security')
-    compile('org.springframework.boot:spring-boot-starter-websocket')
 //    compile('org.springframework.security:spring-security-oauth2-client')
-    compile('org.springframework.security:spring-security-messaging')
-    compile('io.springfox:springfox-swagger2:2.8.0')
-    compile('io.springfox:springfox-swagger-ui:2.8.0')
 //    compile ("org.springframework.cloud:spring-cloud-starter-config")
 //    compile ':spring-cloud-starter-eureka'
 //    compile("com.divide2:divide2-common:${version}")
@@ -77,7 +73,6 @@ dependencies {
     compile 'com.querydsl:querydsl-jpa'
     compile "org.springframework.security.oauth:spring-security-oauth2:${securityOAuth2Version}"
     kapt "com.querydsl:querydsl-apt:${queryDslVersion}:jpa"
-    compileOnly "org.springframework.boot:spring-boot-configuration-processor"
     //test
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('io.projectreactor:reactor-test')

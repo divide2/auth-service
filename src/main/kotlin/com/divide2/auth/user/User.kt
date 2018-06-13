@@ -1,5 +1,4 @@
-package com.bvvy.grocery.auth.user
-
+package com.divide2.auth.user
 import java.time.LocalDateTime
 import javax.persistence.*
 

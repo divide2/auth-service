@@ -1,4 +1,4 @@
-package com.bvvy.grocery.auth.user
+package com.divide2.auth.user
 
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service

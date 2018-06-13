@@ -1,6 +1,6 @@
 
 server:
-  port: 11111
+  port: 12222
 spring:
   jpa:
     database-platform: POSTGRESQL

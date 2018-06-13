@@ -1,4 +1,4 @@
-package com.bvvy.grocery.auth.user
+package com.divide2.auth.user
 
 import org.springframework.data.jpa.repository.JpaRepository
 

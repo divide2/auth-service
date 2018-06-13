@@ -2,6 +2,8 @@ package com.divide2.auth
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 import java.security.Principal
@@ -14,6 +16,8 @@ import java.security.Principal
 
 @SpringBootApplication
 @RestController
+@EnableAuthorizationServer
+@EnableResourceServer
 class AuthApplication {
 
     @GetMapping("/user")

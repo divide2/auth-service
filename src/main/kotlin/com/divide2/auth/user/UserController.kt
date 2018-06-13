@@ -1,4 +1,4 @@
-package com.bvvy.grocery.auth.user
+package com.divide2.auth.user
 
 import org.hibernate.validator.constraints.Length
 import org.springframework.web.bind.annotation.GetMapping

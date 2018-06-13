@@ -1,19 +1,12 @@
 package com.divide2.auth.config
 
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter
-import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter
-import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFactory
-import java.security.KeyPair
-import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer
-import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer
-import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer
-import org.springframework.core.io.ClassPathResource
 import org.springframework.security.authentication.AuthenticationManager
+import org.springframework.security.core.userdetails.UserDetailsService
+import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer
+import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer
-
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer
 
 
 /**
@@ -21,35 +14,21 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
  * @date 2018/6/12
  */
 @Configuration
-@EnableAuthorizationServer
-class OAuth2Config : AuthorizationServerConfigurerAdapter() {
+class OAuth2Config(val authenticationManager: AuthenticationManager, val userDetailsService: UserDetailsService) : AuthorizationServerConfigurerAdapter() {
 
-//    @Bean
-//    fun jwtAccessTokenConverter(): JwtAccessTokenConverter {
-//        val converter = JwtAccessTokenConverter()
-//        val keyPair = KeyStoreKeyFactory(
-//                ClassPathResource("keystore.jks"), "foobar".toCharArray())
-//                .getKeyPair("test")
-//        converter.setKeyPair(keyPair)
-//        return converter
-//    }
 
-    override fun configure(clients: ClientDetailsServiceConfigurer?) {
-        clients!!.inMemory()
-                .withClient("acme")
-                .secret("acmesecret")
-                .authorizedGrantTypes("authorization_code", "refresh_token",
-                        "password").scopes("openid")
+    override fun configure(clients: ClientDetailsServiceConfigurer) {
+        clients.inMemory()
+                .withClient("eagleeye")
+                .secret("thisissecret")
+                .authorizedGrantTypes("refresh_token", "password", "client_credentials")
+                .scopes("webclient", "mobileclient");
     }
 
-//    override fun configure(endpoints: AuthorizationServerEndpointsConfigurer) {
-//        endpoints.authenticationManager(authenticationManager).accessTokenConverter(
-//                jwtAccessTokenConverter())
-//    }
 
-    override fun configure(oauthServer: AuthorizationServerSecurityConfigurer) {
-        oauthServer.tokenKeyAccess("permitAll()").checkTokenAccess(
-                "isAuthenticated()")
+    override fun configure(endpoints: AuthorizationServerEndpointsConfigurer) {
+        endpoints
+                .authenticationManager(authenticationManager)
+                .userDetailsService(userDetailsService)
     }
-
 }

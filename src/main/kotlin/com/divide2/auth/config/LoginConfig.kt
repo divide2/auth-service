@@ -7,8 +7,11 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer
 import javax.sql.DataSource
+import org.springframework.security.core.userdetails.UserDetailsService
+import org.springframework.security.authentication.AuthenticationManager
+
+
 
 /**
  * Created by bvvy on 2018/3/18.
@@ -17,22 +20,18 @@ import javax.sql.DataSource
 @Configuration
 class LoginConfig(val dataSource: DataSource) : WebSecurityConfigurerAdapter() {
 
+    @Bean
+    override fun authenticationManagerBean(): AuthenticationManager {
+        return super.authenticationManagerBean()
+    }
 
-    override fun configure(http: HttpSecurity) {
-        http
-                .csrf().disable()
-                .httpBasic()
-                .and().formLogin()
-                .and().logout()
-                .and()
-                .authorizeRequests()
-                .antMatchers("/", "/login/**", "/v1/join").permitAll()
-                .anyRequest()
-                .authenticated()
+    @Bean
+    override fun userDetailsServiceBean(): UserDetailsService {
+        return super.userDetailsServiceBean()
     }
 
     override fun configure(auth: AuthenticationManagerBuilder) {
-        auth.jdbcAuthentication()
+        /*auth.jdbcAuthentication()
                 .dataSource(dataSource)
                 .passwordEncoder(passwordEncoder())
                 .usersByUsernameQuery(
@@ -40,7 +39,12 @@ class LoginConfig(val dataSource: DataSource) : WebSecurityConfigurerAdapter() {
                 )
                 .authoritiesByUsernameQuery(
                         "select u.username,'ROLE_USER' from sys_user u where u.username = ?"
-                )
+                )*/
+        auth
+                .inMemoryAuthentication()
+                .withUser("john.carnell").password("password1").roles("USER")
+                .and()
+                .withUser("william.woodward").password("password2").roles("USER", "ADMIN");
     }
 
 
