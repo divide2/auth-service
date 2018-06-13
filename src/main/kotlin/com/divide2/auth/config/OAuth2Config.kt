@@ -14,15 +14,16 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
  * @date 2018/6/12
  */
 @Configuration
-class OAuth2Config(val authenticationManager: AuthenticationManager, val userDetailsService: UserDetailsService) : AuthorizationServerConfigurerAdapter() {
+class OAuth2Config(val authenticationManager: AuthenticationManager,
+                   val userDetailsService: UserDetailsService) : AuthorizationServerConfigurerAdapter() {
 
 
     override fun configure(clients: ClientDetailsServiceConfigurer) {
         clients.inMemory()
                 .withClient("eagleeye")
-                .secret("thisissecret")
+                .secret("{bcrypt}\$2a\$10\$.ifhoEH6RplL9lUfxb3V/OOs36OLda8KjGPfjPwp0hVnvZJMORfRa")
                 .authorizedGrantTypes("refresh_token", "password", "client_credentials")
-                .scopes("webclient", "mobileclient");
+                .scopes("webclient", "mobileclient")
     }
 
 
