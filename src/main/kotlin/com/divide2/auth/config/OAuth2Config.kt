@@ -21,7 +21,7 @@ class OAuth2Config(val authenticationManager: AuthenticationManager,
     override fun configure(clients: ClientDetailsServiceConfigurer) {
         clients.inMemory()
                 .withClient("eagleeye")
-                .secret("{bcrypt}\$2a\$10\$.ifhoEH6RplL9lUfxb3V/OOs36OLda8KjGPfjPwp0hVnvZJMORfRa")
+                .secret("\$2a\$10\$.ifhoEH6RplL9lUfxb3V/OOs36OLda8KjGPfjPwp0hVnvZJMORfRa")
                 .authorizedGrantTypes("refresh_token", "password", "client_credentials")
                 .scopes("webclient", "mobileclient")
     }
