@@ -8,6 +8,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 class ResourceConfig : ResourceServerConfigurerAdapter() {
     override fun configure(http: HttpSecurity) {
         http
+                .antMatcher("/user")
                 .authorizeRequests()
                 .antMatchers("/v1/join").permitAll()
                 .anyRequest().authenticated()
