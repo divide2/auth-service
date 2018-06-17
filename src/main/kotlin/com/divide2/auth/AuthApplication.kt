@@ -23,17 +23,7 @@ import java.util.*
 @EnableAuthorizationServer
 @EnableResourceServer
 @EnableOAuth2Client
-class AuthApplication {
-
-    @RequestMapping(value = ["/user"], produces = ["application/json"])
-    fun user(user: OAuth2Authentication): Map<String, Any> {
-        val userInfo = HashMap<String, Any>()
-        userInfo["user"] = user.userAuthentication.principal
-        userInfo["authorities"] = AuthorityUtils.authorityListToSet(user.userAuthentication.authorities)
-        return userInfo
-    }
-
-}
+class AuthApplication
 
 fun main(args: Array<String>) {
     runApplication<AuthApplication>(*args)

@@ -1,3 +1,4 @@
+
 server:
   port: 12222
 spring:
@@ -58,3 +59,4 @@ logging:
       springframework:
        web: debug
        security: debug
+debug: true
