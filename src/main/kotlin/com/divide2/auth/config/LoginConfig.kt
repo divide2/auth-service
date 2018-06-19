@@ -5,9 +5,11 @@ import org.springframework.boot.autoconfigure.security.oauth2.resource.UserInfoT
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.NestedConfigurationProperty
 import org.springframework.boot.web.servlet.FilterRegistrationBean
+import org.springframework.context.ApplicationEventPublisher
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.authentication.AuthenticationManager
+import org.springframework.security.authentication.event.AuthenticationSuccessEvent
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
@@ -33,7 +35,8 @@ import javax.sql.DataSource
  * com.divide2.auth.config
  */
 @Configuration
-class LoginConfig(val dataSource: DataSource, val oauth2ClientContext: OAuth2ClientContext) : WebSecurityConfigurerAdapter() {
+class LoginConfig(val dataSource: DataSource,
+                  val oauth2ClientContext: OAuth2ClientContext) : WebSecurityConfigurerAdapter() {
     @Bean
     override fun authenticationManagerBean(): AuthenticationManager {
         return super.authenticationManagerBean()
@@ -116,19 +119,27 @@ class LoginConfig(val dataSource: DataSource, val oauth2ClientContext: OAuth2Cli
         val tokenServices = UserInfoTokenServices(client.resource.userInfoUri, client.client.clientId)
         tokenServices.setRestTemplate(template)
         filter.setTokenServices(tokenServices)
+        filter.setApplicationEventPublisher(MyApplicationEventPublisher())
         return filter
     }
+}
 
-    class ClientResources {
-
-        @NestedConfigurationProperty
-        var client = AuthorizationCodeResourceDetails()
-
-        @NestedConfigurationProperty
-        var resource = ResourceServerProperties()
-
+class MyApplicationEventPublisher : ApplicationEventPublisher {
+    override fun publishEvent(event: Any) {
+        if (event is AuthenticationSuccessEvent) {
+            println(event.authentication)
+        }
     }
 
 }
 
+class ClientResources {
+
+    @NestedConfigurationProperty
+    var client = AuthorizationCodeResourceDetails()
+
+    @NestedConfigurationProperty
+    var resource = ResourceServerProperties()
+
+}
 
