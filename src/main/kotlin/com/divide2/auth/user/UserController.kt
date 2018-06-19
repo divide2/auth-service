@@ -12,7 +12,7 @@ import javax.validation.constraints.NotEmpty
 @RestController
 class UserController(val userService: UserService) {
 
-    @PostMapping(value = ["/user"])
+    @RequestMapping(value = ["/user"])
     fun user(user: OAuth2Authentication): Map<String, Any> {
         val userInfo = HashMap<String, Any>()
         userInfo["user"] = user.userAuthentication.principal

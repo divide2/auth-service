@@ -1,4 +1,5 @@
 package com.divide2.auth.user
+import org.springframework.security.core.userdetails.UserDetails
 import java.time.LocalDateTime
 import javax.persistence.*
 
