@@ -1,5 +1,6 @@
 package com.divide2.auth.config
 
+import com.divide2.auth.user.UserRepository
 import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties
 import org.springframework.boot.autoconfigure.security.oauth2.resource.UserInfoTokenServices
 import org.springframework.boot.context.properties.ConfigurationProperties
@@ -11,6 +12,8 @@ import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+import org.springframework.security.core.userdetails.User
+import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
@@ -21,7 +24,7 @@ import org.springframework.security.oauth2.client.filter.OAuth2ClientContextFilt
 import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository
+import org.springframework.stereotype.Component
 import org.springframework.web.filter.CompositeFilter
 import java.util.*
 import javax.servlet.Filter
@@ -32,8 +35,17 @@ import javax.sql.DataSource
  * Created by bvvy on 2018/3/18.
  * com.divide2.auth.config
  */
+@Component
+class MyUserDetailService : UserDetailsService {
+    override fun loadUserByUsername(username: String): UserDetails {
+        return User.builder().username("").authorities("").roles("").build()
+    }
+}
+
 @Configuration
-class LoginConfig(val dataSource: DataSource, val oauth2ClientContext: OAuth2ClientContext) : WebSecurityConfigurerAdapter() {
+class LoginConfig(val dataSource: DataSource,
+                  val oauth2ClientContext: OAuth2ClientContext,
+                  val userRepository: UserRepository) : WebSecurityConfigurerAdapter() {
     @Bean
     override fun authenticationManagerBean(): AuthenticationManager {
         return super.authenticationManagerBean()
@@ -43,6 +55,11 @@ class LoginConfig(val dataSource: DataSource, val oauth2ClientContext: OAuth2Cli
     override fun userDetailsServiceBean(): UserDetailsService {
         return super.userDetailsServiceBean()
     }
+
+    override fun userDetailsService(): UserDetailsService {
+        return MyUserDetailService()
+    }
+
 
     override fun configure(auth: AuthenticationManagerBuilder) {
         auth.jdbcAuthentication()
@@ -64,8 +81,7 @@ class LoginConfig(val dataSource: DataSource, val oauth2ClientContext: OAuth2Cli
     @Throws(Exception::class)
     override fun configure(http: HttpSecurity) {
         // @formatter:off
-        http.
-                antMatcher("/**").authorizeRequests().antMatchers("/", "/login**")
+        http.antMatcher("/**").authorizeRequests().antMatchers("/", "/login**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()

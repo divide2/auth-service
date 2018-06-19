@@ -12,12 +12,11 @@ import javax.validation.constraints.NotEmpty
 @RestController
 class UserController(val userService: UserService) {
 
-    @PostMapping(value = ["/user"])
-    fun user(user: OAuth2Authentication,type: String): Map<String, Any> {
+    @RequestMapping(value = ["/user"])
+    fun user(user: OAuth2Authentication): Map<String, Any> {
         val userInfo = HashMap<String, Any>()
         userInfo["user"] = user.userAuthentication.principal
         userInfo["authorities"] = AuthorityUtils.authorityListToSet(user.userAuthentication.authorities)
-        println(type)
         return userInfo
     }
 
