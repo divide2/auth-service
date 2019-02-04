@@ -13,5 +13,6 @@ import javax.persistence.Table
 class Topic(
         @Id
         var id: String,
+        var menuId: String,
         var name: String
 )

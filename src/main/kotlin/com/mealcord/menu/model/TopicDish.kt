@@ -13,6 +13,5 @@ import javax.persistence.Table
 class TopicDish(
         @Id
         var id: String,
-        var foodName: String,
-        var dishId: String
+        var dishName: String
 )

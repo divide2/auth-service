@@ -1,5 +1,6 @@
 package com.mealcord.menu.model
 
+import java.time.LocalDateTime
 import javax.persistence.Entity
 import javax.persistence.Id
 import javax.persistence.Table
@@ -13,5 +14,7 @@ import javax.persistence.Table
 class Menu(
         @Id
         var id: String,
-        var topicId: String
+        var name: String,
+        var userId: String,
+        var createTime: LocalDateTime
 )
