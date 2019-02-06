@@ -17,7 +17,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     username: postgres
     password: bvvyeh288
-    url: jdbc:postgresql://localhost:5432/grocery
+    url: jdbc:postgresql://120.77.153.225:5432/mealcord
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
   application:
@@ -31,4 +31,3 @@ logging:
       springframework:
        web: debug
        security: debug
-debug: true

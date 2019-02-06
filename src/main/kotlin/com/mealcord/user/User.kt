@@ -17,8 +17,6 @@ class User(
 
         var phone: String = "",
 
-        var email: String = "",
-
         var gender: String = "",
 
         val avatar: String = "",

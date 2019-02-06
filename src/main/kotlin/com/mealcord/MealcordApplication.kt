@@ -11,8 +11,8 @@ import org.springframework.boot.runApplication
 
 
 @SpringBootApplication
-class AuthApplication
+class MealcordApplication
 
 fun main(args: Array<String>) {
-    runApplication<AuthApplication>(*args)
+    runApplication<MealcordApplication>(*args)
 }

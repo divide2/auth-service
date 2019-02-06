@@ -10,17 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 @Controller
 @RequestMapping("/login")
 class LoginController(restTemplateBuilder: RestTemplateBuilder) {
-    val restTemplate = restTemplateBuilder.build()
 
-    @GetMapping("/github/code")
-    fun githubLoginCode(callbackData: AuthCallbackData) {
-        val headers = HttpHeaders()
-        headers.add("Accept", "application/json")
-        val params = LinkedMultiValueMap<String, String>()
-        params.add("code", callbackData.code)
-        params.add("state", callbackData.state)
-
-    }
 
 }
 
