@@ -1,5 +1,4 @@
-package com.divide2.auth.user
-import org.springframework.security.core.userdetails.UserDetails
+package com.mealcord.user
 import java.time.LocalDateTime
 import javax.persistence.*
 

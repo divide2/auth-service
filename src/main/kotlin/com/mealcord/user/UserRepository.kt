@@ -1,4 +1,4 @@
-package com.divide2.auth.user
+package com.mealcord.user
 
 import org.springframework.data.jpa.repository.JpaRepository
 

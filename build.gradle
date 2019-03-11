@@ -1,9 +1,8 @@
 buildscript {
     ext {
         kotlinVersion = '1.2.41'
-        springBootVersion = '2.0.2.RELEASE'
+        springBootVersion = '2.1.3.RELEASE'
         queryDslVersion = '4.1.4'
-        securityOAuth2Version = '2.3.3.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -63,18 +62,10 @@ dependencies {
     compile('com.fasterxml.jackson.module:jackson-module-kotlin')
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compile("org.jetbrains.kotlin:kotlin-reflect")
-//    compile('org.springframework.boot:spring-boot-starter-security')
-//    compile('org.springframework.security:spring-security-oauth2-client')
-//    compile ("org.springframework.cloud:spring-cloud-starter-config")
-//    compile ':spring-cloud-starter-eureka'
-//    compile("com.divide2:divide2-common:${version}")
     runtime('org.postgresql:postgresql')
     // queryDsl
     compile 'com.querydsl:querydsl-jpa'
     kapt "com.querydsl:querydsl-apt:${queryDslVersion}:jpa"
-    // security
-//    compile "org.springframework.security.oauth:spring-security-oauth2:${securityOAuth2Version}"
-    compile "org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.0.1.RELEASE"
     //test
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('io.projectreactor:reactor-test')

@@ -1,4 +1,4 @@
-package com.divide2.auth.user
+package com.mealcord.user
 
 interface UserService {
     fun save(user: User)

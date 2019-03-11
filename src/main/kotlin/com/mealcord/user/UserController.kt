@@ -1,24 +1,15 @@
-package com.divide2.auth.user
+package com.mealcord.user
 
 import org.hibernate.validator.constraints.Length
-import org.springframework.security.core.authority.AuthorityUtils
-import org.springframework.security.oauth2.provider.OAuth2Authentication
-import org.springframework.web.bind.annotation.*
-import java.security.Principal
-import java.util.HashMap
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RestController
 import javax.validation.constraints.NotEmpty
 
 
 @RestController
 class UserController(val userService: UserService) {
 
-    @RequestMapping(value = ["/user"])
-    fun user(user: OAuth2Authentication): Map<String, Any> {
-        val userInfo = HashMap<String, Any>()
-        userInfo["user"] = user.userAuthentication.principal
-        userInfo["authorities"] = AuthorityUtils.authorityListToSet(user.userAuthentication.authorities)
-        return userInfo
-    }
 
     @PostMapping("/v1/join")
     fun join(@RequestBody joinDto: JoinDto) {

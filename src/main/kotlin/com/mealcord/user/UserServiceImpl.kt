@@ -1,11 +1,10 @@
-package com.divide2.auth.user
+package com.mealcord.user
 
-import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 
 @Service
-class UserServiceImpl(val userRepository: UserRepository,
-                      val passwordEncoder: PasswordEncoder
+class UserServiceImpl(val userRepository: UserRepository
+//                      val passwordEncoder: PasswordEncoder
 ) : UserService {
 
     override fun save(user: User) {
@@ -13,7 +12,7 @@ class UserServiceImpl(val userRepository: UserRepository,
         if (existsUser != null) {
 //            throw AlreadyExistsException()
         }
-        user.password = passwordEncoder.encode(user.password)
+//        user.password = passwordEncoder.encode(user.password)
         userRepository.save(user)
     }
 

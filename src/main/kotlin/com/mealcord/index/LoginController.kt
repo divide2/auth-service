@@ -1,6 +1,5 @@
-package com.divide2.auth.index
+package com.mealcord.index
 
-import com.divide2.auth.config.ClientResources
 import org.springframework.boot.web.client.RestTemplateBuilder
 import org.springframework.http.HttpHeaders
 import org.springframework.stereotype.Controller
@@ -10,8 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 
 @Controller
 @RequestMapping("/login")
-class LoginController(restTemplateBuilder: RestTemplateBuilder,
-                      val github: ClientResources) {
+class LoginController(restTemplateBuilder: RestTemplateBuilder) {
     val restTemplate = restTemplateBuilder.build()
 
     @GetMapping("/github/code")
@@ -19,16 +17,9 @@ class LoginController(restTemplateBuilder: RestTemplateBuilder,
         val headers = HttpHeaders()
         headers.add("Accept", "application/json")
         val params = LinkedMultiValueMap<String, String>()
-        params.add("client_id", github.client.clientId)
-        params.add("client_secret", github.client.clientSecret)
         params.add("code", callbackData.code)
         params.add("state", callbackData.state)
-        println(params)
-//        params.add("redirect_uri", "$redirectUri/access")
-//        val requestEntity = HttpEntity<MultiValueMap<String, String>>(params, headers)
-//        val accessData = restTemplate.postForObject<AccessCallbackData>(accessUrl, requestEntity)
-//        this.getUserInfo(accessData)
-//        return "redirect:$redirectFrontUrl?token=${accessData?.access_token}"
+
     }
 
 }

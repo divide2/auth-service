@@ -25,28 +25,6 @@ spring:
   mvc:
     favicon:
       enabled: false
-facebook:
-  client:
-    clientId: 233668646673605
-    clientSecret: 33b17e044ee6a4fa383f46ec6e28ea1d
-    accessTokenUri: https://graph.facebook.com/oauth/access_token
-    userAuthorizationUri: https://www.facebook.com/dialog/oauth
-    tokenName: oauth_token
-    authenticationScheme: query
-    clientAuthenticationScheme: form
-  resource:
-    userInfoUri: https://graph.facebook.com/me
-github:
-  client:
-    clientId: 1c23891103858487501e
-    clientSecret: f33376b3bdf95b4c4ef2645b0358b183af8afb42
-    accessTokenUri: https://github.com/login/oauth/access_token
-    userAuthorizationUri: https://github.com/login/oauth/authorize
-#    preEstablishedRedirectUri: http://127.0.0.1:12222/login/github/code
-#    useCurrentUri: false
-    clientAuthenticationScheme: form
-  resource:
-    userInfoUri: https://api.github.com/user
 logging:
   level:
     org:
